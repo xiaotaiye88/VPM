@@ -1,0 +1,23 @@
+节点测试总结 - 2026-04-20 -1:40:85
+==================================================
+
+测试时间：2026-04-20 14:08:55
+总节点数：531
+可用节点数：216
+可用率：40.7%
+
+节点类型分布:
+  vless: 172
+  ss: 28
+  trojan: 13
+  vmess: 2
+  hysteria2: 1
+
+国家分布:
+  Unknown: 216
+
+失败原因统计:
+  无法解析节点: 267
+  错误：: 39
+  错误：[SSL: RECORD_LAYER_FAILURE] record layer failure (: 8
+  错误：[SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert inte: 1
