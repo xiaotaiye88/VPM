@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  node-tester:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: node-tester
+    volumes:
+      # 挂载节点数据目录
+      - ./data:/app/data:rw
+      # 挂载测试结果输出目录
+      - ./output:/app/output:rw
+    environment:
+      # 超时设置（秒）
+      - TEST_TIMEOUT=8
+      # 并发数
+      - MAX_CONCURRENT=20
+    networks:
+      - node-tester-network
+    restart: unless-stopped
+
+  # 交互式容器（用于调试和手动测试）
+  node-tester-shell:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: node-tester-shell
+    volumes:
+      - ./data:/app/data:rw
+      - ./output:/app/output:rw
+    stdin_open: true
+    tty: true
+    networks:
+      - node-tester-network
+
+networks:
+  node-tester-network:
+    driver: bridge

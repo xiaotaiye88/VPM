@@ -1,0 +1,5 @@
+# Python 版本
+python>=3.11
+
+# 核心依赖
+aiohttp>=3.9.0
